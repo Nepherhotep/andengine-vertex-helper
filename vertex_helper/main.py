@@ -33,6 +33,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.patternLineEdit.setText(self.conf['pattern'])
         self.sortClockwiseCheckBox.setChecked(self.conf['sort_clockwise'])
         self.invertedYCheckBox.setChecked(self.conf['inverted_y'])
+        self.fixtureChooser.insertItem(0, "add new")
         if 'last_file' in self.conf:
             filename = self.conf['last_file']
             self.graphicsView.loadSprite(filename)
