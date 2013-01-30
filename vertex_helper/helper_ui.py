@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'helper.ui'
 #
-# Created: Mon Dec 27 14:33:51 2010
-#      by: PyQt4 UI code generator 4.8.1
+# Created: Wed Jan 30 12:08:37 2013
+#      by: PyQt4 UI code generator 4.9.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,17 +12,24 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(807, 430)
+        MainWindow.resize(814, 508)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.centralwidget)
-        self.verticalLayout_3 = QtGui.QVBoxLayout()
-        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
@@ -30,48 +37,46 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.graphicsView = MyGraphicsView(self.centralwidget)
         self.graphicsView.setMinimumSize(QtCore.QSize(363, 243))
-        self.graphicsView.setMaximumSize(QtCore.QSize(363, 243))
         self.graphicsView.setObjectName(_fromUtf8("graphicsView"))
         self.horizontalLayout.addWidget(self.graphicsView)
+        self.verticalLayout_4 = QtGui.QVBoxLayout()
+        self.verticalLayout_4.setObjectName(_fromUtf8("verticalLayout_4"))
+        self.fixtureChooser = QtGui.QComboBox(self.centralwidget)
+        self.fixtureChooser.setObjectName(_fromUtf8("fixtureChooser"))
+        self.verticalLayout_4.addWidget(self.fixtureChooser)
         self.plainTextEdit = QtGui.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setMaximumSize(QtCore.QSize(16777215, 243))
         self.plainTextEdit.setObjectName(_fromUtf8("plainTextEdit"))
-        
-        self.fixtureChooser = QtGui.QComboBox(self)
-        self.fixtureChooser.insertItem(0,"add new")
-        
-        self.verticalLayout_3.addWidget(self.fixtureChooser)
-        self.verticalLayout_3.addWidget(self.plainTextEdit)
-        self.horizontalLayout.addLayout(self.verticalLayout_3)
+        self.verticalLayout_4.addWidget(self.plainTextEdit)
+        self.horizontalLayout.addLayout(self.verticalLayout_4)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.formLayout = QtGui.QFormLayout()
         self.formLayout.setFieldGrowthPolicy(QtGui.QFormLayout.AllNonFixedFieldsGrow)
         self.formLayout.setObjectName(_fromUtf8("formLayout"))
         self.patternLabel = QtGui.QLabel(self.centralwidget)
         self.patternLabel.setObjectName(_fromUtf8("patternLabel"))
-        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.patternLabel)
+        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.patternLabel)
         self.patternLineEdit = QtGui.QLineEdit(self.centralwidget)
         self.patternLineEdit.setMinimumSize(QtCore.QSize(400, 0))
         self.patternLineEdit.setObjectName(_fromUtf8("patternLineEdit"))
-        self.formLayout.setWidget(0, QtGui.QFormLayout.LabelRole, self.patternLineEdit)
+        self.formLayout.setWidget(0, QtGui.QFormLayout.FieldRole, self.patternLineEdit)
         self.sortClockwiseLabel = QtGui.QLabel(self.centralwidget)
         self.sortClockwiseLabel.setObjectName(_fromUtf8("sortClockwiseLabel"))
-        self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.sortClockwiseLabel)
+        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.sortClockwiseLabel)
         self.sortClockwiseCheckBox = QtGui.QCheckBox(self.centralwidget)
         self.sortClockwiseCheckBox.setChecked(True)
         self.sortClockwiseCheckBox.setObjectName(_fromUtf8("sortClockwiseCheckBox"))
-        self.formLayout.setWidget(1, QtGui.QFormLayout.LabelRole, self.sortClockwiseCheckBox)
+        self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.sortClockwiseCheckBox)
         self.invertedYLabel = QtGui.QLabel(self.centralwidget)
         self.invertedYLabel.setObjectName(_fromUtf8("invertedYLabel"))
-        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.invertedYLabel)
+        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.invertedYLabel)
         self.invertedYCheckBox = QtGui.QCheckBox(self.centralwidget)
         self.invertedYCheckBox.setObjectName(_fromUtf8("invertedYCheckBox"))
-        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.invertedYCheckBox)
+        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.invertedYCheckBox)
         self.verticalLayout.addLayout(self.formLayout)
         self.verticalLayout_2.addLayout(self.verticalLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 807, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 814, 22))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuFile = QtGui.QMenu(self.menubar)
         self.menuFile.setObjectName(_fromUtf8("menuFile"))
@@ -83,9 +88,6 @@ class Ui_MainWindow(object):
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
-        self.toolBar = QtGui.QToolBar(MainWindow)
-        self.toolBar.setObjectName(_fromUtf8("toolBar"))
-        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionOpen = QtGui.QAction(MainWindow)
         self.actionOpen.setObjectName(_fromUtf8("actionOpen"))
         self.actionDelete_selected = QtGui.QAction(MainWindow)
@@ -119,29 +121,28 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Andengine Vertex Helper", None, QtGui.QApplication.UnicodeUTF8))
-        self.patternLabel.setText(QtGui.QApplication.translate("MainWindow", "Pattern", None, QtGui.QApplication.UnicodeUTF8))
-        self.sortClockwiseLabel.setText(QtGui.QApplication.translate("MainWindow", "Sort Clockwise", None, QtGui.QApplication.UnicodeUTF8))
-        self.invertedYLabel.setText(QtGui.QApplication.translate("MainWindow", "Inverted Y", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuFile.setTitle(QtGui.QApplication.translate("MainWindow", "File", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuEdit.setTitle(QtGui.QApplication.translate("MainWindow", "Edit", None, QtGui.QApplication.UnicodeUTF8))
-        self.menuView.setTitle(QtGui.QApplication.translate("MainWindow", "View", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolBar.setWindowTitle(QtGui.QApplication.translate("MainWindow", "toolBar", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionOpen.setText(QtGui.QApplication.translate("MainWindow", "Open", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionOpen.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+O", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDelete_selected.setText(QtGui.QApplication.translate("MainWindow", "Delete selected", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionDelete_selected.setShortcut(QtGui.QApplication.translate("MainWindow", "Del", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_up.setText(QtGui.QApplication.translate("MainWindow", "Move up", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_up.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Up", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_down.setText(QtGui.QApplication.translate("MainWindow", "Move down", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_down.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Down", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_left.setText(QtGui.QApplication.translate("MainWindow", "Move left", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_left.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Left", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_right.setText(QtGui.QApplication.translate("MainWindow", "Move right", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionMove_right.setShortcut(QtGui.QApplication.translate("MainWindow", "Ctrl+Right", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_In.setText(QtGui.QApplication.translate("MainWindow", "Zoom In", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_In.setShortcut(QtGui.QApplication.translate("MainWindow", "+", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_Out.setText(QtGui.QApplication.translate("MainWindow", "Zoom Out", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionZoom_Out.setShortcut(QtGui.QApplication.translate("MainWindow", "-", None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Andengine Vertex Helper", None))
+        self.patternLabel.setText(_translate("MainWindow", "Pattern", None))
+        self.sortClockwiseLabel.setText(_translate("MainWindow", "Sort Clockwise", None))
+        self.invertedYLabel.setText(_translate("MainWindow", "Inverted Y", None))
+        self.menuFile.setTitle(_translate("MainWindow", "File", None))
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit", None))
+        self.menuView.setTitle(_translate("MainWindow", "View", None))
+        self.actionOpen.setText(_translate("MainWindow", "Open", None))
+        self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+O", None))
+        self.actionDelete_selected.setText(_translate("MainWindow", "Delete selected", None))
+        self.actionDelete_selected.setShortcut(_translate("MainWindow", "Del", None))
+        self.actionMove_up.setText(_translate("MainWindow", "Move up", None))
+        self.actionMove_up.setShortcut(_translate("MainWindow", "Ctrl+Up", None))
+        self.actionMove_down.setText(_translate("MainWindow", "Move down", None))
+        self.actionMove_down.setShortcut(_translate("MainWindow", "Ctrl+Down", None))
+        self.actionMove_left.setText(_translate("MainWindow", "Move left", None))
+        self.actionMove_left.setShortcut(_translate("MainWindow", "Ctrl+Left", None))
+        self.actionMove_right.setText(_translate("MainWindow", "Move right", None))
+        self.actionMove_right.setShortcut(_translate("MainWindow", "Ctrl+Right", None))
+        self.actionZoom_In.setText(_translate("MainWindow", "Zoom In", None))
+        self.actionZoom_In.setShortcut(_translate("MainWindow", "+", None))
+        self.actionZoom_Out.setText(_translate("MainWindow", "Zoom Out", None))
+        self.actionZoom_Out.setShortcut(_translate("MainWindow", "-", None))
 
 from graphicsview import MyGraphicsView
