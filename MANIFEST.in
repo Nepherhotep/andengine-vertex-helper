@@ -1,0 +1,4 @@
+include README.TXT
+include img/*
+include sprites/*
+include main.py
